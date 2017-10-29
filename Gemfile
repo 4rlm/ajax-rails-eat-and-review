@@ -62,13 +62,13 @@ gem 'pry'
 gem 'bcrypt'
 gem 'faker'
 gem 'rspec', '~>3.0'
-gem 'will_paginate', require: 'will_paginate'
-gem 'will_paginate-bootstrap', :require => 'will_paginate-bootstrap'
+# gem 'will_paginate', require: 'will_paginate'
+# gem 'will_paginate-bootstrap', :require => 'will_paginate-bootstrap'
 
 # gem 'google_places', '~> 0.32.0'
 # gem 'google-api-client', '~> 0.7.1'
-gem 'google_places'
-gem 'google-api-client'
+# gem 'google_places'
+# gem 'google-api-client'
 # gem 'geokit', '~> 1.11'
 
 # Use hirb for rails c table view.  Then in rails c:

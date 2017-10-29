@@ -1,52 +1,56 @@
-<%= form_with(model: restaurant, local: true) do |form| %>
-  <% if restaurant.errors.any? %>
+<div class="row">
+  <div class="col-md-8 col-sm-offset-2">
+
+    <%= form_with(model: restaurant, local: true) do |form| %>
+    <% if restaurant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
       <ul>
-      <% restaurant.errors.full_messages.each do |message| %>
+        <% restaurant.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :restaurant_name %>
-  </div>
+    <div class="row">
+      <div class="col-md-8 form-group field">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :restaurant_name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cuisine %>
-    <%= form.text_field :cuisine, id: :restaurant_cuisine %>
-  </div>
+      <div class="col-md-4 form-group field">
+        <%= form.label :cuisine %>
+        <%= form.text_field :cuisine, id: :restaurant_cuisine, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :restaurant_address %>
-  </div>
+    <div class="row">
+      <div class="col-md-4 form-group field">
+        <%= form.label :address %>
+        <%= form.text_field :address, id: :restaurant_address, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :restaurant_city %>
-  </div>
+      <div class="col-md-4 form-group field">
+        <%= form.label :city %>
+        <%= form.text_field :city, id: :restaurant_city, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :restaurant_state %>
-  </div>
+      <div class="col-md-2 form-group field">
+        <%= form.label :state %>
+        <%= form.text_field :state, id: :restaurant_state, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip, id: :restaurant_zip %>
-  </div>
+      <div class="col-md-2 form-group field">
+        <%= form.label :zip %>
+        <%= form.text_field :zip, id: :restaurant_zip, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :restaurant_user_id %>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-success pull-right' %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -2,14 +2,14 @@
 
 <h1>Reviews</h1>
 
-<table>
+<table class="table table-bordered table-hover table-striped text-nowrap">
   <thead>
     <tr>
       <th>User</th>
       <th>Restaurant</th>
       <th>Rating</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="3">Manage</th>
     </tr>
   </thead>
 
@@ -27,7 +27,6 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to 'New Review', new_review_path, class: "btn btn-info"  %>
 
 <br>
-
-<%= link_to 'New Review', new_review_path %>

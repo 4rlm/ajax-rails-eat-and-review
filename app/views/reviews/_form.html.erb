@@ -1,37 +1,37 @@
-<%= form_with(model: review, local: true) do |form| %>
-  <% if review.errors.any? %>
+<div class="row">
+  <div class="col-md-8 col-sm-offset-2">
+
+    <%= form_with(model: review, local: true) do |form| %>
+    <% if review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
       <ul>
-      <% review.errors.full_messages.each do |message| %>
+        <% review.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :review_user_id %>
-  </div>
+    <div class="row">
 
-  <div class="field">
-    <%= form.label :restaurant_id %>
-    <%= form.text_field :restaurant_id, id: :review_restaurant_id %>
-  </div>
+      <div class="col-md-10 form-group field">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :review_description, class: 'form-control'  %>
+      </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating, id: :review_rating %>
-  </div>
+      <div class="col-md-2 form-group field">
+        <%= form.label :rating %>
+        <%= form.text_field :rating, id: :review_rating, class: 'form-control'  %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :review_description %>
-  </div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-success pull-right'  %>
+    </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>

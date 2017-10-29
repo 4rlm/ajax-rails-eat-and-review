@@ -1,32 +1,39 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+        <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username, id: :user_username %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :username %>
+      <%= form.text_field :username, id: :user_username, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :user_email, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :pw_hash %>
-    <%= form.text_field :pw_hash, id: :user_pw_hash %>
-  </div>
+    <div class="form-group field">
+      <%= form.label :pw_hash %>
+      <%= form.text_field :pw_hash, id: :user_pw_hash, class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-success pull-right' %>
+    </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>

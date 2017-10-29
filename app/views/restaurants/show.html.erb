@@ -1,39 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div class="container">
+  <div class="row erb_header">
+    <h3>View Details for <%= @restaurant.name.capitalize %></h3>
+  </div>
 
-<p>
-  <strong>Cuisine:</strong>
-  <%= @restaurant.cuisine %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @restaurant.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @restaurant.zip %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @restaurant.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+  <div class="row">
+    <table class="table table-bordered table-hover table-striped text-nowrap">
+      <tr>
+        <th class="w-small">Cuisine</th>
+        <th class="w-small">Address</th>
+        <th class="w-small">City</th>
+        <th class="w-small">State</th>
+        <th class="w-small">Zip</th>
+        <th class="w-med">Updated</th>
+      </tr>
+      <tr>
+        <td><%= @restaurant.cuisine %></td>
+        <td><%= @restaurant.address %></td>
+        <td><%= @restaurant.city %></td>
+        <td><%= @restaurant.state %></td>
+        <td><%= @restaurant.zip %></td>
+        <td><%= @restaurant.updated_at.strftime('%x')%></td>
+      </tr>
+    </table>
+    <%= link_to 'Back', restaurants_path, class: "btn btn-info" %>
+  </div>
+</div>
