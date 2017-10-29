@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <%# if user_signed_in? %>
+      <%= render partial: 'layouts/nav' %>
+    <%# end %>
+
+    <div class="container-fluid outer-container">
+      <%= render partial: 'layouts/flash' %>
+      <%= yield %>
+    </div>
+
   </body>
+
+  <!-- Footer -->
+  <div class="footer text-center">
+    <h4>Developed by The Austonites &copy 2017</h4>
+  </div>
+
 </html>

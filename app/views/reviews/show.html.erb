@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @review.user_id %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @review.restaurant_id %>
-</p>
+  <div class="erb_header">
+    <h3><%= @review.restaurant.name.capitalize %></h3>
+  </div>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @review.rating %>
-</p>
+  <table class="table table-bordered table-hover table-striped text-nowrap">
+    <tr>
+      <th class="w-small">Author</th>
+      <th class="w-small">Restaurant</th>
+      <th class="w-small">Rating</th>
+      <th class="w-small">Description</th>
+      <th class="w-med">Updated</th>
+    </tr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @review.description %>
-</p>
+    <tr>
+      <td><%= @review.user.username.capitalize %></td>
+      <td><%= @review.restaurant.name.capitalize %></td>
+      <td><%= @review.rating %></td>
+      <td><%= @review.description %></td>
+      <td><%= @review.updated_at.strftime('%x')%></td>
+    </tr>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+  </table>
+
+  <%= link_to 'Back', reviews_path, class: "btn btn-info" %>
+
+</div>

@@ -16,32 +16,33 @@ ActiveRecord::Schema.define(version: 20171029140552) do
   enable_extension "plpgsql"
 
   create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.string "cuisine"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.integer "user_id"
+    t.string "name", null: false
+    t.string "cuisine", null: false
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "zip", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "restaurant_id"
-    t.integer "rating"
-    t.string "description"
+    t.integer "user_id", null: false
+    t.integer "restaurant_id", null: false
+    t.integer "rating", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "pw_hash"
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "pw_hash", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="erb_header">
+    <h3><%= @user.username.capitalize %> Settings</h3>
+  </div>
 
-<p>
-  <strong>Pw hash:</strong>
-  <%= @user.pw_hash %>
-</p>
+  <table class="table table-bordered table-hover table-striped text-nowrap">
+    <tr>
+      <th class="w-small">ID</th>
+      <th class="w-small">Username</th>
+      <th class="w-small">Email</th>
+      <th class="w-med">Updated</th>
+      <th class="w-med">Edit</th>
+    </tr>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <tr>
+      <td><%= @user.id %></td>
+      <td><%= @user.username.capitalize %></td>
+      <td><%= @user.email %></td>
+      <td><%= @user.updated_at.strftime('%x')%></td>
+      <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Back', users_path, class: "btn btn-info" %>
+</div>

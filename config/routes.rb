@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews
   resources :restaurants
-  get 'home/index'
-  root :to => "home#index"
+  get 'restaurants/index'
+  root :to => "restaurants#index"
 end
