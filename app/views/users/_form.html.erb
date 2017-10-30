@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-    <%= form_with(model: user, local: true) do |form| %>
-    <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <%#= form_for @user do |f| %>
+    <%= form_with(model: user, local: true) do |f| %>
+      <% if user.errors.any? %>
 
+    <div id="error_explanation">
+      <h5><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h5>
       <ul>
         <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,24 +16,29 @@
     <% end %>
 
     <div class="form-group field">
-      <%= form.label :username %>
-      <%= form.text_field :username, id: :user_username, class: 'form-control' %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username, id: :username, class: 'form-control' %>
     </div>
 
     <div class="form-group field">
-      <%= form.label :email %>
-      <%= form.text_field :email, id: :user_email, class: 'form-control' %>
+      <%= f.label :email %><br />
+      <%= f.text_field :email, id: :email, class: 'form-control' %>
     </div>
 
     <div class="form-group field">
-      <%= form.label :pw_hash %>
-      <%= form.text_field :pw_hash, id: :user_pw_hash, class: 'form-control' %>
+      <%= f.label :password %><br />
+      <%= f.password_field :password, id: :password, class: 'form-control' %>
     </div>
 
+    <div class="form-group field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, id: :password_confirmation, class: 'form-control' %>
+    </div>
 
     <div class="actions">
-      <%= form.submit class: 'btn btn-success pull-right' %>
+      <%= f.submit class: 'btn btn-success pull-right' %>
     </div>
+
     <% end %>
 
   </div>

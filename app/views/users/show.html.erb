@@ -3,12 +3,11 @@
 <div class="container">
 
   <div class="erb_header">
-    <h3><%= @user.username.capitalize %> Settings</h3>
+    <h3><%#= @user.username.capitalize %> Settings</h3>
   </div>
 
   <table class="table table-bordered table-hover table-striped text-nowrap">
     <tr>
-      <th class="w-small">ID</th>
       <th class="w-small">Username</th>
       <th class="w-small">Email</th>
       <th class="w-med">Updated</th>
@@ -16,7 +15,6 @@
     </tr>
 
     <tr>
-      <td><%= @user.id %></td>
       <td><%= @user.username.capitalize %></td>
       <td><%= @user.email %></td>
       <td><%= @user.updated_at.strftime('%x')%></td>
