@@ -26,6 +26,8 @@
         <%= form.text_field :rating, id: :review_rating, class: 'form-control'  %>
       </div>
 
+      <%= form.hidden_field :restaurant_id, :value => @restaurant.id %>
+
     </div>
 
     <div class="actions">
