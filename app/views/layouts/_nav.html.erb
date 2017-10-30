@@ -6,16 +6,16 @@
   <nav class="main-nav navbar">
     <ul>
       <!-- insert more links here -->
-      <li><a href='/restaurants'>Restaurants</a></li>
-      <li><a href='/reviews'>Reviews</a></li>
-      <li><a href='/users'>Users</a></li>
-      <li><a href='/users/new'>Register</a></li>
+      <!-- <li><%#= link_to 'Restaurants', restaurants_path, remote: true %></li> -->
+      <li><%= link_to 'Restaurants', restaurants_path %></li>
+      <li><%= link_to 'Reviews', reviews_path %></li>
+      <li><%= link_to 'Users', users_path %></li>
 
       <% if logged_in? %>
         <li><%= link_to 'Logout', logout_path %></li>
         <td><%#= link_to "Profile", profile_path %></td>
         <!-- <td><%#= link_to "#{@current_user.username}", profile_path(id: @current_user.id) %></td> -->
-        <td><%= link_to @current_user.username.capitalize, @current_user %></td>
+        <td><%= link_to @current_user.username.capitalize, @current_user, remote: true %></td>
 
       <% else %>
         <td><%= link_to "Sign Up", signup_path %></td>

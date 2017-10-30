@@ -8,6 +8,23 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+
+    #  respond_to do |format|
+    #    format.html { redirect_to restaurants_url, notice: 'View Restaurants.' }
+    #    format.js { redirect_to restaurants_url, notice: 'View Restaurants.' }
+    #  end
+
+    # respond_to do |format|
+    #   if !@restaurants.nil?
+    #     format.html { render restaurants_url, notice: 'View Restaurants.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render new_restaurant_path, notice: 'No Restaurants.' }
+    #     format.json { head :no_content }
+    #   end
+    # end
+
+
   end
 
   # GET /restaurants/1
@@ -47,6 +64,7 @@ class RestaurantsController < ApplicationController
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
   def update
+    # binding.pry
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
@@ -64,6 +82,7 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      # format.js { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
