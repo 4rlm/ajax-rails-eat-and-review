@@ -5,8 +5,7 @@
   <!-- <nav class="main-nav"> -->
   <nav class="main-nav navbar">
     <ul>
-
-      <!-- inser more links here -->
+      <!-- insert more links here -->
       <li><a href='/restaurants'>Restaurants</a></li>
       <li><a href='/reviews'>Reviews</a></li>
       <li><a href='/users'>Users</a></li>
@@ -14,12 +13,14 @@
 
       <% if logged_in? %>
         <li><%= link_to 'Logout', logout_path %></li>
+        <td><%#= link_to "Profile", profile_path %></td>
+        <!-- <td><%#= link_to "#{@current_user.username}", profile_path(id: @current_user.id) %></td> -->
+        <td><%= link_to @current_user.username.capitalize, @current_user %></td>
+
       <% else %>
         <td><%= link_to "Sign Up", signup_path %></td>
         <td><%= link_to "Log In", login_path %></td>
       <% end %>
-
-      <!-- <li><a href='#/users/logout'>Log_Out</a></li> -->
       <li><a class="cd-signin" href="#0">Sign in</a></li>
       <li><a class="cd-signup" href="#1">Sign up</a></li>
     </ul>

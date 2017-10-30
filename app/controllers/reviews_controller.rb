@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :require_login, only: [:index, :show]
 
   # GET /reviews
   # GET /reviews.json
@@ -25,8 +26,9 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     # @review = Review.new(review_params)
+    # @review.user = User.find(session[:user_id])
     @review = Review.new(review_params)
-    @review.user = User.find(session[:user_id])
+    @review.user = @current_user
 
     respond_to do |format|
       if @review.save
