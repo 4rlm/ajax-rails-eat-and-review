@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <table class="table table-bordered table-hover table-striped text-nowrap">
     <thead>
@@ -25,7 +23,12 @@
           <% end %>
         </td>
 
-        <td><%= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to restaurant_path(restaurant), remote: true, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= icon('trash') %>
+          <% end %>
+        </td>
+
+        <!-- <td><%#= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
 
       </tr>
       <% end %>
