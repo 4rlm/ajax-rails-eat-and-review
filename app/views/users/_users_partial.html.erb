@@ -15,13 +15,18 @@
       <tr>
         <td><%= link_to user.username.capitalize, user, remote: true %></td>
         <td><%= user.email %></td>
+        <td><%= user.updated_at.strftime('%x')%></td>
 
         <td><%= link_to edit_user_path(user) do %>
           <%= icon('pencil-square-o') %>
           <% end %>
         </td>
 
-        <td><%= link_to 'Destroy', user, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to user_path(user), remote: true, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= icon('trash') %>
+          <% end %>
+        </td>
+
       </tr>
       <% end %>
     </tbody>
