@@ -1,0 +1,25 @@
+<div class="row">
+  <table class="table table-bordered table-hover table-striped text-nowrap text-center">
+    <tr>
+      <th>Name <%= icon('building') %></th>
+      <th>Cuisine <%= icon('cutlery') %></th>
+      <th>Address <%= icon('address-card-o') %></th>
+      <th>Updated <%= icon('calendar') %></th>
+      <th colspan="2">Manage <%= icon('sliders') %></th>
+    </tr>
+
+    <tr>
+      <td><%= link_to "#{@restaurant.name}", restaurant, remote: true %></td>
+      <td><%= @restaurant.cuisine %></td>
+      <td><%= @restaurant.address %>, <%= @restaurant.city %>, <%= @restaurant.state %>, <%= @restaurant.zip %></td>
+      <td><%= @restaurant.updated_at.strftime('%x')%></td>
+
+      <td><%= link_to edit_restaurant_path(@restaurant) do %>
+        <%= icon('pencil-square-o') %>
+        <% end %>
+      </td>
+
+      <td><%= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </table>
+</div>

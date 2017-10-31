@@ -1,36 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    
+  <!-- PARTIAL LINK TO RESTAURANTS/INDEX (VIEW ALL) -->
+  <% if @restaurants %>
+    <h3>Restaurants: <%= @restaurants.count %></h3>
+    <%= render 'restaurants_partial', restaurants: @restaurants %>
+  <% else %>
+    <h3>No Restaurants Posted Yet</h3>
+  <% end %>
 
-<h1>Restaurants</h1>
-
-<table class="table table-bordered table-hover table-striped text-nowrap">
-  <thead>
-    <tr>
-      <th>Name <%= icon('building') %></th>
-      <th>Cuisine <%= icon('cutlery') %></th>
-      <th>Address <%= icon('address-card-o') %></th>
-      <th>Updated <%= icon('calendar') %></th>
-      <th colspan="2">Manage <%= icon('sliders') %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= link_to "#{restaurant.name}", restaurant, remote: true %></td>
-        <td><%= restaurant.cuisine %></td>
-        <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %>, <%= restaurant.zip %></td>
-        <td><%= restaurant.updated_at.strftime('%x')%></td>
-
-        <td><%= link_to edit_restaurant_path(restaurant) do %>
-          <%= icon('pencil-square-o') %>
-          <% end %>
-        </td>
-
-        <td><%= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-info"  %>
-<br>
+</div>

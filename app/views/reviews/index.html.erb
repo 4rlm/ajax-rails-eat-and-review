@@ -1,7 +1,11 @@
-<!-- PARTIAL LINK TO REVIEWS/INDEX (VIEW ALL) -->
-<% if @reviews %>
-  <h3>Reviews: <%= @reviews.count %></h3>
-  <%= render 'reviews_partial', reviews: @reviews %>
-<% else %>
-  <h3>No Reviews Posted Yet</h3>
-<% end %>
+<div class="container">
+
+  <!-- PARTIAL LINK TO REVIEWS/INDEX (VIEW ALL) -->
+  <% if @reviews %>
+    <h3>Reviews: <%= @reviews.count %></h3>
+    <%= render 'reviews_partial', reviews: @reviews %>
+  <% else %>
+    <h3>No Reviews Posted Yet</h3>
+  <% end %>
+
+</div>
