@@ -2,25 +2,7 @@
 
 <div class="container">
 
-  <div class="erb_header">
-    <h3><%#= @user.username.capitalize %> Settings</h3>
-  </div>
-
-  <table class="table table-bordered table-hover table-striped text-nowrap">
-    <tr>
-      <th class="w-small">Username</th>
-      <th class="w-small">Email</th>
-      <th class="w-med">Updated</th>
-      <th class="w-med">Edit</th>
-    </tr>
-
-    <tr>
-      <td><%= @user.username.capitalize %></td>
-      <td><%= @user.email %></td>
-      <td><%= @user.updated_at.strftime('%x')%></td>
-      <td><%= link_to 'Edit', edit_user_path(@user) %></td>
-    </tr>
-  </table>
+  <%= render 'user_profile', user: @user %>
 
   <%= link_to 'Back', users_path, class: "btn btn-info" %>
 </div>

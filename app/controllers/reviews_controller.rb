@@ -11,6 +11,10 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erb
+    end
   end
 
   # GET /reviews/new

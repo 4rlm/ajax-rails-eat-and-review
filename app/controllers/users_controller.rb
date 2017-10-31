@@ -8,6 +8,19 @@ class UsersController < ApplicationController
   end
 
   def show
+    # @post = Post.find(params[:id])
+    # @posts=Post.all # needed for sidebar, probably better to use a cell for this
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erb
+    end
+
+
+    # respond_to do |format|
+    #   binding.pry
+    #   format.html { redirect_to @user, notice: 'Welcome to your profile.' }
+    #   format.json { render :show, status: :ok, location: @user }
+    # end
   end
 
 
@@ -34,6 +47,25 @@ class UsersController < ApplicationController
     end
 
   end
+
+
+  def destroy
+    if @user == @current_user
+      session[:user_id] = nil
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
 
   private
 

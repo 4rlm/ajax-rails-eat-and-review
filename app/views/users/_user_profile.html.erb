@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div class="erb_header">
+    <h3><%= @user.username.capitalize %> Settings</h3>
+  </div>
+
+  <div class="row">
+    <table class="table table-bordered table-hover table-striped text-nowrap">
+      <tr>
+        <th>Username <%= icon('user') %></th>
+        <th>Email <%= icon('envelope') %></th>
+        <th>Updated <%= icon('calendar') %></th>
+        <th colspan="2">Manage <%= icon('sliders') %></th>
+      </tr>
+      <tr>
+        <td><%= @user.username.capitalize %></td>
+        <td><%= @user.email %></td>
+        <td><%= @user.updated_at.strftime('%x')%></td>
+
+        <td><%= link_to edit_user_path(@user) do %>
+          <%= icon('pencil-square-o') %>
+          <% end %>
+        </td>
+
+        <td><%= link_to 'Destroy', @user, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>View All My Restaurants</h3>
+
+  <div class="row">
+    <table class="table table-bordered table-hover table-striped text-nowrap text-center">
+      <tr>
+        <th>Name <%= icon('building') %></th>
+        <th>Cuisine <%= icon('cutlery') %></th>
+        <th>Address <%= icon('address-card-o') %></th>
+        <th>Updated <%= icon('calendar') %></th>
+        <th colspan="2">Manage <%= icon('sliders') %></th>
+      </tr>
+
+      <% if @user.restaurants.present? %>
+      <% @user.restaurants.each do |restaurant|%>
+      <tr>
+        <td><%= link_to "#{restaurant.name}", restaurant, remote: true %></td>
+        <td><%= restaurant.cuisine %></td>
+        <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %>, <%= restaurant.zip %></td>
+        <td><%= restaurant.updated_at.strftime('%x')%></td>
+
+        <td><%= link_to edit_restaurant_path(restaurant) do %>
+          <%= icon('pencil-square-o') %>
+          <% end %>
+        </td>
+
+        <td><%= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+      <% end %>
+      <% end %>
+    </table>
+    <h3><a href='/restaurants/new'>Post More Restaurants</a></h3>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <% if @user.reviews %>
+    <% @reviews = @user.reviews %>
+    <h3>Reviews I Wrote: <%= @reviews.count %></h3>
+    <!-- PARTIAL LINK TO REVIEWS/INDEX (VIEW ALL) -->
+    <%= render 'reviews/reviews_partial', reviews: @user.reviews %>
+    <% else %>
+    <h3>You haven't written any reviews yet.</h3>
+    <p>Let's get started - It's simple!  Choose a restaurant and add your review.</p>
+    <% end %>
+  </div>
+
+</div>
