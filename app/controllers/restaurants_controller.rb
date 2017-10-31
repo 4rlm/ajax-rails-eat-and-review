@@ -30,6 +30,10 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erb
+    end
   end
 
   # GET /restaurants/new
