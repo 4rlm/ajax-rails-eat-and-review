@@ -1,5 +1,3 @@
-<div class="container">
-
 <div class="row">
   <table class="table table-bordered table-hover table-striped text-nowrap text-center">
     <tr>
@@ -21,29 +19,7 @@
         <% end %>
       </td>
 
-      <td><%= link_to restaurant_path(@restaurant), remote: true, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <%= icon('trash') %>
-        <% end %>
-      </td>
-
-      <!-- ORIGINAL DELETE -->
-      <!-- <td><%#= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-
+      <td><%= link_to 'Destroy', restaurant, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   </table>
-</div>
-
-  <!-- PARTIAL LINK TO REVIEWS/INDEX (VIEW ALL) -->
-  <% if @restaurant.reviews %>
-  <% @reviews = @restaurant.reviews %>
-  <h3><%= @reviews.count %> Reviews</h3>
-  <%= render 'reviews/reviews_partial', reviews: @restaurant.reviews %>
-  <% else %>
-  <h3>No reviews written yet.</h3>
-  <p>Let's get started - It's simple!  Choose a restaurant and add your review.</p>
-  <% end %>
-
-  <!-- PARTIAL LINK TO REVIEWS/FORM (POST NEW RESTAURANT REVIEW) -->
-  <%= render 'reviews/form', review: Review.new %>
-
 </div>

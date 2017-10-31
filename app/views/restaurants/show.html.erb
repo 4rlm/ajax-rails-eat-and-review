@@ -1,2 +1,7 @@
-<!-- PARTIAL LINK TO RESTAURANT/SHOW (DETAIL PAGE) -->
-<%= render 'restaurant_partial', restaurant: @restaurant %>
+<!-- PARTIAL LINK TO RESTAURANT/INDEX (VIEW ALL) -->
+<% if @restaurant %>
+  <h3>Restaurant Details</h3>
+  <%= render 'restaurant_partial', restaurant: @restaurant %>
+<% else %>
+  <h3>No Restaurant Details</h3>
+<% end %>

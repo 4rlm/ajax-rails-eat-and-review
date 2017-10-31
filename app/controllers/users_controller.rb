@@ -48,20 +48,6 @@ class UsersController < ApplicationController
 
   end
 
-  # PATCH/PUT /reviews/1
-  # PATCH/PUT /reviews/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render 'user_partial', user: @current_user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 
   def destroy
     if @user == @current_user

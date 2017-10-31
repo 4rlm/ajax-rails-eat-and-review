@@ -56,11 +56,8 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to user_url(@current_user), notice: 'Thanks for adding your restaurant listing.' }
-        format.json { render 'users/user_partial', user: @current_user }
-
-        # format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        # format.json { render :show, status: :created, location: @restaurant }
+        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
+        format.json { render :show, status: :created, location: @restaurant }
       else
         format.html { render :new }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
@@ -74,11 +71,8 @@ class RestaurantsController < ApplicationController
     # binding.pry
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to user_url(@current_user), notice: 'Restaurant was successfully updated.' }
-        format.json { render 'users/user_partial', user: @current_user }
-
-        # format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @restaurant }
+        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
+        format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
@@ -89,14 +83,11 @@ class RestaurantsController < ApplicationController
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
-    binding.pry
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to user_url(@current_user), notice: 'Restaurant was successfully destroyed.' }
-      format.json { render 'users/user_partial', user: @current_user }
-
-      # format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
-      # format.json { head :no_content }
+      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      # format.js { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
