@@ -1,1 +1,7 @@
-<%= render 'restaurant_profile', restaurant: @restaurant %>
+<!-- PARTIAL LINK TO RESTAURANT/INDEX (VIEW ALL) -->
+<% if @restaurant %>
+  <h3>Restaurant Details</h3>
+  <%= render 'restaurant_partial', restaurant: @restaurant %>
+<% else %>
+  <h3>No Restaurant Details</h3>
+<% end %>
