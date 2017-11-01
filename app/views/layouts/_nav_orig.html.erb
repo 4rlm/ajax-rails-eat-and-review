@@ -27,10 +27,6 @@
   </nav>
 </header>
 
-
-
-
-
 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
   <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
     <ul class="cd-switcher">
@@ -40,12 +36,7 @@
 
     <div id="cd-login"> <!-- log in form -->
       <!-- <form class="cd-form"> -->
-      <%#= form_with(model: restaurant, remote: true) do |form| %>
-
-      <!-- <form class="cd-form" action="/users/login" method="post"> -->
-        <form class="" action="" method="">
-
-
+      <form class="cd-form" action="/users/login" method="post">
         <p class="fieldset">
           <label class="image-replace cd-email" for="signin-email">E-mail</label>
           <input class="full-width has-padding has-border" id="signin-email" type="text" name="#user[email]" placeholder="E-mail">
@@ -65,7 +56,7 @@
         </p>
 
         <p class="fieldset">
-          <!-- <input class="full-width" type="submit" name="commit" value="Login"> -->
+          <input class="full-width" type="submit" name="commit" value="Login">
         </p>
       </form>
 
@@ -100,7 +91,7 @@
         </p>
 
         <p class="fieldset">
-          <!-- <input class="full-width has-padding" type="submit" name="commit" value="Create account"> -->
+          <input class="full-width has-padding" type="submit" name="commit" value="Create account">
         </p>
       </form>
 
@@ -118,7 +109,7 @@
         </p>
 
         <p class="fieldset">
-          <!-- <input class="full-width has-padding" type="submit" value="Reset password"> -->
+          <input class="full-width has-padding" type="submit" value="Reset password">
         </p>
       </form>
 

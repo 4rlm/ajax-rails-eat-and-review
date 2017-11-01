@@ -10,10 +10,11 @@
 
   <body>
 
-
     <%# if user_signed_in? %>
       <%= render partial: 'layouts/nav' %>
     <%# end %>
+
+    <%= render partial: 'layouts/modal' %>
 
     <div id="main-wrapper" class="container-fluid outer-container">
       <%= render partial: 'layouts/flash' %>
